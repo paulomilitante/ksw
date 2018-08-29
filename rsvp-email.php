@@ -1,6 +1,8 @@
 <?php 
 
-require "sendgrid-php/sendgrid-php.php";
+use \SendGrid;
+use \SendGrid\Mail;
+require("sendgrid-php/sendgrid-php.php");
 
 $uemail = $_POST['email'];
 $name = $_POST['name'];
@@ -23,20 +25,22 @@ $subject = "RSVP - $name";
 $apiKey = getenv('SENDGRID_API_KEY');
 
 
-$email = new \SendGrid\Mail\Mail(); 
-$email->setFrom("kokoandsani2018@gmail.com", "Test");
-$email->setSubject($subject);
-$email->addTo("kokoandsani2018@gmail.com", "Test");
-$email->addContent("text/html", $body);
+$from = new From($uemail, $name);
+$to = new To("kokoandsani2018@gmail.com", "K&S");
+$subject = new Subject($subject);
+$htmlContent = new HtmlContent($body);
+$email = new Mail($from,
+                  $to,
+                  $subject,
+                  $htmlContent);
 
 $sendgrid = new \SendGrid($apiKey);
-
 try {
     $response = $sendgrid->send($email);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
 } catch (Exception $e) {
-    echo 'Caught exception: '. $e->getMessage() ."\n";
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
+echo $response->statusCode();
+print_r($response->headers());
+echo $response->body();
 ?>
