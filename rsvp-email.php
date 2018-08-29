@@ -32,6 +32,6 @@ $response = $sg->client->mail()->send()->post($mail);
 // echo $response->headers();
 // echo $response->body();
 
-// include("success.html");
+include("success.html");
 
 ?>
