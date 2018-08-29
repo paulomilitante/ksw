@@ -29,7 +29,8 @@ $email->setSubject($subject);
 $email->addTo("kokoandsani2018@gmail.com", "");
 $email->addContent("text/html", $body);
 
-$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+$sendgrid = new \SendGrid($apiKey);
+
 try {
     $response = $sendgrid->send($email);
     print $response->statusCode() . "\n";
