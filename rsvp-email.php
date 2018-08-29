@@ -24,9 +24,9 @@ $apiKey = getenv('SENDGRID_API_KEY');
 
 
 $email = new \SendGrid\Mail\Mail(); 
-$email->setFrom("kokoandsani2018@gmail.com", "");
+$email->setFrom("kokoandsani2018@gmail.com", "Test");
 $email->setSubject($subject);
-$email->addTo("kokoandsani2018@gmail.com", "");
+$email->addTo("kokoandsani2018@gmail.com", "Test");
 $email->addContent("text/html", $body);
 
 $sendgrid = new \SendGrid($apiKey);
