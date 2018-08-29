@@ -162,3 +162,13 @@ footer {
 .carousel .indicators .indicator-item {
 	background-color: rgba(233, 212, 17, 0.7) !important;
 }
+
+.carousel {
+	height: 650px !important;
+}
+
+@media only screen and (max-width: 374px) {
+	.carousel {
+		height: 270px !important;
+	}	
+}

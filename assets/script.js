@@ -4,8 +4,8 @@ $(document).ready(function(){
 	$('.sidenav').sidenav();
 	$('.collapsible').collapsible();
 	$('.carousel.carousel-slider').carousel({
-		fullWidth: true,
 		indicators: true,
-		height: 300
+		numVisible: 3,
+		width: 400
 	});
 });
