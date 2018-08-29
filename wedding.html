@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+	<link rel="shortcut icon" type="image/png" href="assets/img/monogram.png">
+
+	<title>Koko | Sani</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway|Tangerine" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav class="white">
+			<div class="nav-wrapper">
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="hide-on-med-and-down">
+					<li><a href="#rsvp">RSVP</a></li>
+					<li><a href="#ceremony">LOCATION</a></li>
+					<li><a href="#attire">ATTIRE</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ul>
+				<a href="#welcome" class="right arrow-upward"><i class="material-icons">arrow_upward</i></a>
+			</div>
+		</nav>
+	</div>
+	<ul class="sidenav" id="mobile-demo">
+		<li><a class="sidenav-close" href="#rsvp">RSVP</a></li>
+		<li><a class="sidenav-close" href="#ceremony">LOCATION</a></li>
+		<li><a class="sidenav-close" href="#attire">ATTIRE</a></li>
+		<li><a class="sidenav-close" href="#faq">FAQ</a></li>
+	</ul>
+
+	<section id="welcome" class="fullpage scrollspy blue-grey-text text-darken-4 valign-wrapper">
+		<div class="container">
+			<div class="row center-align"><h1><img src="assets/img/monogram.png"></h1></div>
+			<div class="row center-align">
+				<h4>Koko & Sani<br>17 November 2018</h4>
+			</div>
+			<div class="row center-align">
+				<a href="#rsvp" class="waves-effect waves-light btn-flat">RSVP</a>
+			</div>
+		</div>	
+	</section>
+
+	<section id="rsvp" class="fullpage scrollspy valign-wrapper">
+		<div class="container">
+			<div class="row center-align">
+				<h2>RSVP</h2>
+				<p>Please respond on or before 27 Oct 2018</p>
+			</div>
+			<div class="row">
+				<form class="col s12 m8 l6 offset-m2 offset-l3" method="POST" action="rsvp-email.php">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="name" name="name" type="text" required>
+							<label for="name">Full Name</label>
+						</div>
+						<div class="input-field col s12">
+							<input id="mobile-number" name="mobile-number" type="number" required>
+							<label for="mobile-number">Mobile</label>
+						</div>
+						<div class="input-field col s12">
+							<input id="email" name="email" type="email" required>
+							<label for="email">Email</label>
+						</div>
+						<div class="input-field col s12">
+							<select name="attend" required>
+								<option value="" selected disabled>Select Response</option>
+								<option>Yes, I will attend (Ceremony Only)</option>
+								<option>Yes, I will attend (Reception Only)</option>
+								<option>Yes, I will attend (Ceremony and Reception)</option>
+								<option>No, I will not attend</option>
+							</select>
+							<label>Will you celebrate with us?</label>
+						</div>
+						<div class="input-field col s12">
+							<textarea id="message" name="message" class="materialize-textarea"></textarea>
+							<label for="message">Message (Optional)</label>
+						</div>
+						<div class="col s12 center-align">
+							<p><i>All information will be visible to the couple only.</i></p>
+							<button type="submit" class="waves-effect waves-light btn-flat">Submit</button>
+						</div>
+					</div>					
+				</form>
+			</div>
+		</div>	
+	</section>
+
+	<section id="ceremony" class="fullpage scrollspy blue-grey-text text-darken-4 valign-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m6">
+					<div class="row center-align">
+						<h2>Ceremony</h2>
+						<h5>Sta. Rita de Cascia Parish</h5>
+						<p>Philam Homes, Quezon City</p>
+					</div>
+					<div class="row center-align">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15440.53340110536!2d121.0319932!3d14.6483708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa2ac64e13b5d0e32!2sSta.+Rita+de+Cascia+Parish!5e0!3m2!1sen!2sph!4v1535514396526" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<div class="row center-align">
+						<h2>Reception</h2>
+						<h5>Matrix Creation Events Venue</h5>
+						<p>11 Malakas St. Brgy. Pinyahan, Quezon City</p>
+					</div>
+					<div class="row center-align">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15441.621170742708!2d121.0471663!3d14.6329202!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x736cff4091f82ffa!2sMatrix+Creation+Events+Venue!5e0!3m2!1sen!2sph!4v1535514876719" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+
+	<section id="attire" class="fullpage scrollspy blue-grey-text valign-wrapper">
+		<div class="container">
+			<div class="row center-align">
+				<h2>Attire</h2>
+				<h5>Semi Formal</h5>
+			</div>
+			<div class="row center-align">
+				<div class="col s12 m6">
+					<p>Gentlemen</p>
+					<p><i>Long Sleeves Polo (Black or White)</i></p>
+					<p><i>Slacks (Any Color)</i></p>
+					<div class="col s12">
+						<img class="attire" src="assets/img/attire-m.png">
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<p>Ladies</p>
+					<p><i>Long or Tea-Length Dress (Black Only)</i><br><br></p>
+					<div class="col s12">
+						<img class="attire" src="assets/img/attire-f1.png">
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<section id="faq" class="fullpage scrollspy blue-grey-text valign-wrapper">
+		<div class="container">
+			<div class="row center-align">
+				<h2>FAQ</h2>
+			</div>
+			<div class="row">
+				<ul class="collapsible">
+					<li>
+						<div class="collapsible-header"><b>When and how do I RSVP?</b></div>
+						<div class="collapsible-body">
+							<span>
+								<p><i>Répondez, s'il vous plait</i>. Kindly confirm your attendance or regrets through any of the following:</p>
+								<br>
+								<ul>
+									<li>- Cece: +63.905.311.02.22</li>
+									<li>- Email: lexgo2018@gmail.com</li>
+									<li>- Website: <a href="#rsvp">RSVP Page</a></li>
+								</ul>
+								<br>
+								<p>We look forward to receiving your responses on or before <b>20 May 2018.</b></p>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Oh no! I have a sudden change of plans on your wedding day. What do I do?</b></div>
+						<div class="collapsible-body"><span>In case of any change in your response, please inform us on or before 01 June 2018 so that we can adjust and/or reallocate the seats that we have reserved for you.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Can I bring a guest to the wedding?</b></div>
+						<div class="collapsible-body"><span>Yes, to the extent of your additional allocated seats as indicated in the wedding invitation. Any additional guest may not be accommodated due to limited seating capacity of our venue.<br><br>For further concerns in this regard, kindly coordinate with Cece (please see first question above).</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>What do I wear?</b></div>
+						<div class="collapsible-body"><span>Do keep in mind that the attire is <b>strictly formal</b>: dark coat and tie for the gentlemen and evening gown for the ladies.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Are there are any colors you would prefer me not to wear?</b></div>
+						<div class="collapsible-body"><span>Ladies, we kindly request that you <i>refrain</i> from wearing black or white, as these colors are reserved for designated people in our wedding</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Is there a parking area that is conveniently located near the Ceremony Venue (Manila Cathedral)?</b></div>
+						<div class="collapsible-body">
+							<span>
+								<p>Yes! There is a gated parking lot at the right side of the cathedral (when facing the same) that recently opened. You may park your vehicle there and take a 1-2 minute walk to the cathedral. The parking fee is minimal.</p><br>
+								<p>Please click this <a href="#ceremony">link</a> for more information.</p>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Where do I sit at the wedding ceremony?</b></div>
+						<div class="collapsible-body"><span>You are free to select your seat. Kindly proceed to the empty seats nearest to the altar.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>I can only attend the Wedding Ceremony, is that alright?</b></div>
+						<div class="collapsible-body"><span>Of course! Any time you allot for our wedding is well-appreciated.<br><br>Do let us know when you respond to our RSVP in case you are joining only a part of our special day.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Can I go straight to the reception?</b></div>
+						<div class="collapsible-body"><span>Certainly! But you’ll miss out on our wedding ceremony in the beautiful Manila Cathedral, dubbed as “the Mother of all Churches and Cathedrals in the Philippines.”<br><br>Do let us know when you respond to our RSVP in case you are joining only a part of our special day.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>What can I do after the wedding ceremony and before the reception?</b></div>
+						<div class="collapsible-body"><span>You can go straight to <a href="#reception">The Blue Leaf Filipinas</a>. We have food, refreshments, and live entertainment waiting for the guests during the Cocktail Hour.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Is there a parking area that is conveniently located near the Reception Venue (The Blue Leaf Filipinas)?</b></div>
+						<div class="collapsible-body">
+							<span>
+								<p>Yes! City of Dreams, right beside The Blue Leaf Filipinas (when facing the same) has FREE parking. The City of Dreams parking entrance is approximately 100 meters away from The Blue Leaf Filipinas.</p><br>
+								<p>Please click this <a href="#reception">link</a> for more information.</p><br>
+								<p>There is also valet parking, which you may avail yourself at the driveway of The Blue Leaf Filipinas - as you get off.</p>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Where do I sit at the dinner reception in Blue Leaf Filipinas?</b></div>
+						<div class="collapsible-body"><span>No worries, we've prepared table/seating arrangements. Please proceed to the registration table and/or approach any of our coordinators in black attire for assistance. (See ladies, if you wear black, you might be mistaken for one of our coordinators).<br><br>We will also be posting the table arrangements online a day or two before the wedding, for convenient reference.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Do we bring a gift for the newlyweds?</b></div>
+						<div class="collapsible-body"><span>Your presence in our wedding celebration is more than enough; presence > presents.<br><br>If you insist, you may take a look at our wedding <a href="#registry">registries</a> for gift preferences.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>May I take pictures or videos of the wedding?</b></div>
+						<div class="collapsible-body"><span>Of course! Please feel free to share your works of art and use our wedding hashtag <b>#LexGoGetMarried2018</b> as you do.<br><br>Gentle reminder though to keep the church ceremony sacred, and to be "present" during the event!<br><br>Please also remember to give way to our official photographers and videographers, as may be necessary.<br><br><i>P.S.</i> We'd be thrilled to receive copies of your best shots at <b>lexgo2018@gmail.com</b>.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>How can I leave a special message for the newlyweds?</b></div>
+						<div class="collapsible-body"><span>We have prepared a guest book for your lovely messages. Please proceed to the registration table and/or approach any of our coordinators in black attire for assistance.<br><br>You may also send us a message through the <a href="#rsvp">RSVP</a> page.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>I have food allergies. How do I avoid food that I am allergic to?</b></div>
+						<div class="collapsible-body"><span>Avoid food that you know you are not supposed to eat. When in doubt, kindly check the menu and / or inquire from the servers.<br><br>In any case, we will make sure that there is a first-aid kit on hand, which should include anti-histamines.<br><br>Please proceed to the registration table and/or approach any of our coordinators in black attire for assistance on the first aid kid.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>I'm an "alcoholic". What should I expect?</b></div>
+						<div class="collapsible-body"><span>Choose your poison! Free flowing wine, liquor, signature cocktails, beer, etc. throughout the night.<br><br>While we want you to drink to your heart’s content, please drink responsibly. Gentle reminder folks, don’t drink and drive.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Why should I stay until the after party?</b></div>
+						<div class="collapsible-body"><span>Awesome band | DI | DJ | Drinks galore. Our open bar will cater to the guests’ after-party needs.<br><br>Party away 'til Manic Monday. June 12 (Tuesday) is a holiday.</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>Ok, I got everything. Can you give me a rundown of the timeline/schedule to remember for the wedding?</b></div>
+						<div class="collapsible-body"><span>Church ceremony begins at 2:30 PM.<br><br>Cocktail hour begins at 5:00 PM.<br><br>Dinner reception begins at 6:30 PM.<br><br>Partyyyy starts at 10:00 PM!</span></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><b>I have a question not answered here; how do I contact you?</b></div>
+						<div class="collapsible-body"><span>For all other queries, or if you just want to drop us a message, a word of advice, or warnings against marriage, please email us at <b>lexgo2018@gmail.com</b></span></div>
+					</li>
+				</ul>
+			</div>
+		</div>	
+	</section>
+
+	<section id="countdown" class="fullpage scrollspy valign-wrapper">
+		<div class="container">
+			<div class="row center-align">
+				<h1 id="countdown-timer"></h1>
+				<h4>left until the happy event</h4>
+			</div>
+			<div class="row">
+				<div class="carousel carousel-slider col s12 m8 offset-m2">
+					<a class="carousel-item" href="#one!"><img class="image-full" src="assets/img/couple1.jpg"></a>
+					<a class="carousel-item" href="#two!"><img class="image-full" src="assets/img/couple2.jpg"></a>
+					<a class="carousel-item" href="#three!"><img class="image-full" src="assets/img/couple3.jpg"></a>
+				</div>
+			</div>
+			<div class="row center-align">
+				<h2>See you there!</h2>
+			</div>
+		</div>
+	</section>
+
+	<footer class="page-footer">
+		<div class="footer-copyright">
+			<div class="container footer-container">
+				<p class="center-align">Designed and Created by <a target="_blank" class="blue-grey-text text-lighten-2" href="http://www.paulomilitante.ml">Paulo Militante</a></p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<script src="assets/script.js"></script>
+	<script src="assets/countdown.js"></script>
+</body>
+</html>
