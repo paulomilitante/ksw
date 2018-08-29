@@ -29,6 +29,6 @@ $sg = new \SendGrid($apiKey);
 
 $response = $sg->client->mail()->send()->post($mail);
 echo $response->body();
-include("success.html");
+// include("success.html");
 
 ?>
