@@ -18,7 +18,7 @@ $body = "<html>
 </body>
 </html>";
 
-$from = new SendGrid\Email($name,$email);
+$from = new SendGrid\Email($name,"kokoandsani2018@gmail.com");
 $subject = "RSVP - $name";
 $to = new SendGrid\Email(null, "kokoandsani2018@gmail.com");
 $content = new SendGrid\Content("text/html", $body);
