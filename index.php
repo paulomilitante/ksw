@@ -1,7 +1,7 @@
 <?php
 $pass = isset($_POST['pass']) ? $_POST['pass'] : "";
 
-if($pass == "10062018")
+if($pass == "17112018")
 {
   include("wedding.html");
 }

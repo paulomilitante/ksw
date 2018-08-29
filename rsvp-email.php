@@ -24,7 +24,7 @@ $subject = "RSVP - $name";
 // $content = new SendGrid\Content("text/html", $body);
 // $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-// $apiKey = getenv('SENDGRID_API_KEY');
+$apiKey = getenv('SENDGRID_API_KEY');
 // $sg = new \SendGrid($apiKey);
 
 // $response = $sg->client->mail()->send()->post($mail);
@@ -32,7 +32,7 @@ $subject = "RSVP - $name";
 // include("success.html");
 
 
-$sendgrid = new SendGrid("SENDGRID_API_KEY");
+$sendgrid = new SendGrid($apiKey);
 $email    = new SendGrid\Email();
 
 $email->addTo("kokoandsani2018@gmail.com")
