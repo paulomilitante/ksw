@@ -1,8 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
-// comment out the above line if not using Composer
-// require("./sendgrid-php.php"); 
-// If not using Composer, uncomment the above line
+// If you are using Composer
+require 'vendor/autoload.php';
 
 
 $apiKey = getenv('SENDGRID_API_KEY');
@@ -24,69 +22,47 @@ $request_body = json_decode('{
   "subdomain": "news", 
   "username": "john@example.com"
 }');
-
-try {
-    $response = $sg->client->whitelabel()->domains()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // List all domain whitelabels. #
 // GET /whitelabel/domains #
 
 $query_params = json_decode('{"username": "test_string", "domain": "test_string", "exclude_subusers": "true", "limit": 1, "offset": 1}');
-
-try {
-    $response = $sg->client->whitelabel()->domains()->get(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->get(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Get the default domain whitelabel. #
 // GET /whitelabel/domains/default #
 
-try {
-    $response = $sg->client->whitelabel()->domains()->default()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->default()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // List the domain whitelabel associated with the given user. #
 // GET /whitelabel/domains/subuser #
 
-try {
-    $response = $sg->client->whitelabel()->domains()->subuser()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->subuser()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Disassociate a domain whitelabel from a given user. #
 // DELETE /whitelabel/domains/subuser #
 
-try {
-    $response = $sg->client->whitelabel()->domains()->subuser()->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->subuser()->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update a domain whitelabel. #
@@ -97,45 +73,30 @@ $request_body = json_decode('{
   "default": false
 }');
 $domain_id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($domain_id)->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($domain_id)->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve a domain whitelabel. #
 // GET /whitelabel/domains/{domain_id} #
 
 $domain_id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($domain_id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($domain_id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete a domain whitelabel. #
 // DELETE /whitelabel/domains/{domain_id} #
 
 $domain_id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($domain_id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($domain_id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Associate a domain whitelabel with a given user. #
@@ -145,15 +106,10 @@ $request_body = json_decode('{
   "username": "jane@example.com"
 }');
 $domain_id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($domain_id)->subuser()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($domain_id)->subuser()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Add an IP to a domain whitelabel. #
@@ -163,15 +119,10 @@ $request_body = json_decode('{
   "ip": "192.168.0.1"
 }');
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($id)->ips()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($id)->ips()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Remove an IP from a domain whitelabel. #
@@ -179,30 +130,20 @@ try {
 
 $id = "test_url_param";
 $ip = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($id)->ips()->_($ip)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($id)->ips()->_($ip)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Validate a domain whitelabel. #
 // POST /whitelabel/domains/{id}/validate #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->domains()->_($id)->validate()->post();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->domains()->_($id)->validate()->post();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Create an IP whitelabel #
@@ -213,75 +154,50 @@ $request_body = json_decode('{
   "ip": "192.168.1.1", 
   "subdomain": "email"
 }');
-
-try {
-    $response = $sg->client->whitelabel()->ips()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->ips()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve all IP whitelabels #
 // GET /whitelabel/ips #
 
 $query_params = json_decode('{"ip": "test_string", "limit": 1, "offset": 1}');
-
-try {
-    $response = $sg->client->whitelabel()->ips()->get(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->ips()->get(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve an IP whitelabel #
 // GET /whitelabel/ips/{id} #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->ips()->_($id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->ips()->_($id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete an IP whitelabel #
 // DELETE /whitelabel/ips/{id} #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->ips()->_($id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->ips()->_($id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Validate an IP whitelabel #
 // POST /whitelabel/ips/{id}/validate #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->ips()->_($id)->validate()->post();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->ips()->_($id)->validate()->post();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Create a Link Whitelabel #
@@ -293,75 +209,50 @@ $request_body = json_decode('{
   "subdomain": "mail"
 }');
 $query_params = json_decode('{"limit": 1, "offset": 1}');
-
-try {
-    $response = $sg->client->whitelabel()->links()->post($request_body, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->post($request_body, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve all link whitelabels #
 // GET /whitelabel/links #
 
 $query_params = json_decode('{"limit": 1}');
-
-try {
-    $response = $sg->client->whitelabel()->links()->get(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->get(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve a Default Link Whitelabel #
 // GET /whitelabel/links/default #
 
 $query_params = json_decode('{"domain": "test_string"}');
-
-try {
-    $response = $sg->client->whitelabel()->links()->default()->get(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->default()->get(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve Associated Link Whitelabel #
 // GET /whitelabel/links/subuser #
 
 $query_params = json_decode('{"username": "test_string"}');
-
-try {
-    $response = $sg->client->whitelabel()->links()->subuser()->get(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->subuser()->get(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Disassociate a Link Whitelabel #
 // DELETE /whitelabel/links/subuser #
 
 $query_params = json_decode('{"username": "test_string"}');
-
-try {
-    $response = $sg->client->whitelabel()->links()->subuser()->delete(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->subuser()->delete(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update a Link Whitelabel #
@@ -371,60 +262,40 @@ $request_body = json_decode('{
   "default": true
 }');
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->links()->_($id)->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->_($id)->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve a Link Whitelabel #
 // GET /whitelabel/links/{id} #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->links()->_($id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->_($id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete a Link Whitelabel #
 // DELETE /whitelabel/links/{id} #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->links()->_($id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->_($id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Validate a Link Whitelabel #
 // POST /whitelabel/links/{id}/validate #
 
 $id = "test_url_param";
-
-try {
-    $response = $sg->client->whitelabel()->links()->_($id)->validate()->post();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->whitelabel()->links()->_($id)->validate()->post();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Associate a Link Whitelabel #
@@ -434,12 +305,8 @@ $request_body = json_decode('{
   "username": "jane@example.com"
 }');
 $link_id = "test_url_param";
+$response = $sg->client->whitelabel()->links()->_($link_id)->subuser()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
-try {
-    $response = $sg->client->whitelabel()->links()->_($link_id)->subuser()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}

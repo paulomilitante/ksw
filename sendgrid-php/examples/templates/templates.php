@@ -1,8 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
-// comment out the above line if not using Composer
-// require("./sendgrid-php.php"); 
-// If not using Composer, uncomment the above line
+// If you are using Composer
+require 'vendor/autoload.php';
 
 
 $apiKey = getenv('SENDGRID_API_KEY');
@@ -15,29 +13,19 @@ $sg = new \SendGrid($apiKey);
 $request_body = json_decode('{
   "name": "example_name"
 }');
-
-try {
-    $response = $sg->client->templates()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve all transactional templates. #
 // GET /templates #
 
-
-try {
-    $response = $sg->client->templates()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Edit a transactional template. #
@@ -47,46 +35,30 @@ $request_body = json_decode('{
   "name": "new_example_name"
 }');
 $template_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->_($template_id)->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve a single transactional template. #
 // GET /templates/{template_id} #
 
 $template_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->_($template_id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete a template. #
 // DELETE /templates/{template_id} #
 
 $template_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
-
+$response = $sg->client->templates()->_($template_id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Create a new transactional template version. #
@@ -101,15 +73,10 @@ $request_body = json_decode('{
   "template_id": "ddb96bbc-9b92-425e-8979-99464621b543"
 }');
 $template_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->versions()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->_($template_id)->versions()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Edit a transactional template version. #
@@ -124,15 +91,10 @@ $request_body = json_decode('{
 }');
 $template_id = "test_url_param";
 $version_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve a specific transactional template version. #
@@ -140,15 +102,10 @@ try {
 
 $template_id = "test_url_param";
 $version_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete a transactional template version. #
@@ -156,15 +113,10 @@ try {
 
 $template_id = "test_url_param";
 $version_id = "test_url_param";
-
-try {
-    $response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Activate a transactional template version. #
@@ -172,12 +124,8 @@ try {
 
 $template_id = "test_url_param";
 $version_id = "test_url_param";
+$response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->activate()->post();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
-try {
-    $response = $sg->client->templates()->_($template_id)->versions()->_($version_id)->activate()->post();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}

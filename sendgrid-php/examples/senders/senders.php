@@ -1,8 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
-// comment out the above line if not using Composer
-// require("./sendgrid-php.php"); 
-// If not using Composer, uncomment the above line
+// If you are using Composer
+require 'vendor/autoload.php';
 
 
 $apiKey = getenv('SENDGRID_API_KEY');
@@ -29,28 +27,19 @@ $request_body = json_decode('{
   "state": "Colorado", 
   "zip": "80202"
 }');
-
-try {
-    $response = $sg->client->senders()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->senders()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Get all Sender Identities #
 // GET /senders #
 
-try {
-    $response = $sg->client->senders()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->senders()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update a Sender Identity #
@@ -74,57 +63,38 @@ $request_body = json_decode('{
   "zip": "80202"
 }');
 $sender_id = "test_url_param";
-
-try {
-    $response = $sg->client->senders()->_($sender_id)->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->senders()->_($sender_id)->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // View a Sender Identity #
 // GET /senders/{sender_id} #
 
 $sender_id = "test_url_param";
-
-try {
-    $response = $sg->client->senders()->_($sender_id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->senders()->_($sender_id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete a Sender Identity #
 // DELETE /senders/{sender_id} #
 
 $sender_id = "test_url_param";
-
-try {
-    $response = $sg->client->senders()->_($sender_id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->senders()->_($sender_id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Resend Sender Identity Verification #
 // POST /senders/{sender_id}/resend_verification #
 
 $sender_id = "test_url_param";
+$response = $sg->client->senders()->_($sender_id)->resend_verification()->post();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
-try {
-    $response = $sg->client->senders()->_($sender_id)->resend_verification()->post();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}

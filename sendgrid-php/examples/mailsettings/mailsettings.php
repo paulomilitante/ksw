@@ -1,8 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
-// comment out the above line if not using Composer
-// require("./sendgrid-php.php"); 
-// If not using Composer, uncomment the above line
+// If you are using Composer
+require 'vendor/autoload.php';
 
 
 $apiKey = getenv('SENDGRID_API_KEY');
@@ -13,15 +11,10 @@ $sg = new \SendGrid($apiKey);
 // GET /mail_settings #
 
 $query_params = json_decode('{"limit": 1, "offset": 1}');
-
-try {
-    $response = $sg->client->mail_settings()->get(null, $query_params);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->get(null, $query_params);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update address whitelist mail settings #
@@ -34,28 +27,19 @@ $request_body = json_decode('{
     "example.com"
   ]
 }');
-
-try {
-    $response = $sg->client->mail_settings()->address_whitelist()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->address_whitelist()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve address whitelist mail settings #
 // GET /mail_settings/address_whitelist #
 
-try {
-    $response = $sg->client->mail_settings()->address_whitelist()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->address_whitelist()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update BCC mail settings #
@@ -65,28 +49,19 @@ $request_body = json_decode('{
   "email": "email@example.com", 
   "enabled": false
 }');
-
-try {
-    $response = $sg->client->mail_settings()->bcc()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->bcc()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve all BCC mail settings #
 // GET /mail_settings/bcc #
 
-try {
-    $response = $sg->client->mail_settings()->bcc()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->bcc()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update bounce purge mail settings #
@@ -97,28 +72,19 @@ $request_body = json_decode('{
   "hard_bounces": 5, 
   "soft_bounces": 5
 }');
-
-try {
-    $response = $sg->client->mail_settings()->bounce_purge()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->bounce_purge()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve bounce purge mail settings #
 // GET /mail_settings/bounce_purge #
 
-try {
-    $response = $sg->client->mail_settings()->bounce_purge()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->bounce_purge()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update footer mail settings #
@@ -129,28 +95,19 @@ $request_body = json_decode('{
   "html_content": "...", 
   "plain_content": "..."
 }');
-
-try {
-    $response = $sg->client->mail_settings()->footer()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->footer()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve footer mail settings #
 // GET /mail_settings/footer #
 
-try {
-    $response = $sg->client->mail_settings()->footer()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->footer()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update forward bounce mail settings #
@@ -160,28 +117,19 @@ $request_body = json_decode('{
   "email": "example@example.com", 
   "enabled": true
 }');
-
-try {
-    $response = $sg->client->mail_settings()->forward_bounce()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->forward_bounce()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve forward bounce mail settings #
 // GET /mail_settings/forward_bounce #
 
-try {
-    $response = $sg->client->mail_settings()->forward_bounce()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->forward_bounce()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update forward spam mail settings #
@@ -191,28 +139,19 @@ $request_body = json_decode('{
   "email": "", 
   "enabled": false
 }');
-
-try {
-    $response = $sg->client->mail_settings()->forward_spam()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->forward_spam()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve forward spam mail settings #
 // GET /mail_settings/forward_spam #
 
-try {
-    $response = $sg->client->mail_settings()->forward_spam()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->forward_spam()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update plain content mail settings #
@@ -221,28 +160,19 @@ try {
 $request_body = json_decode('{
   "enabled": false
 }');
-
-try {
-    $response = $sg->client->mail_settings()->plain_content()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->plain_content()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve plain content mail settings #
 // GET /mail_settings/plain_content #
 
-try {
-    $response = $sg->client->mail_settings()->plain_content()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->plain_content()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update spam check mail settings #
@@ -253,28 +183,19 @@ $request_body = json_decode('{
   "max_score": 5, 
   "url": "url"
 }');
-
-try {
-    $response = $sg->client->mail_settings()->spam_check()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->spam_check()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve spam check mail settings #
 // GET /mail_settings/spam_check #
 
-try {
-    $response = $sg->client->mail_settings()->spam_check()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->spam_check()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update template mail settings #
@@ -284,25 +205,17 @@ $request_body = json_decode('{
   "enabled": true, 
   "html_content": "<% body %>"
 }');
-
-try {
-    $response = $sg->client->mail_settings()->template()->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->template()->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve legacy template mail settings #
 // GET /mail_settings/template #
 
-try {
-    $response = $sg->client->mail_settings()->template()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->mail_settings()->template()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
+

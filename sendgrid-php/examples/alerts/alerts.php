@@ -1,8 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
-// comment out the above line if not using Composer
-// require("./sendgrid-php.php"); 
-// If not using Composer, uncomment the above line
+// If you are using Composer
+require 'vendor/autoload.php';
 
 
 $apiKey = getenv('SENDGRID_API_KEY');
@@ -17,28 +15,19 @@ $request_body = json_decode('{
   "frequency": "daily", 
   "type": "stats_notification"
 }');
-
-try {
-    $response = $sg->client->alerts()->post($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->alerts()->post($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve all alerts #
 // GET /alerts #
 
-try {
-    $response = $sg->client->alerts()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->alerts()->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Update an alert #
@@ -48,42 +37,28 @@ $request_body = json_decode('{
   "email_to": "example@example.com"
 }');
 $alert_id = "test_url_param";
-
-try {
-    $response = $sg->client->alerts()->_($alert_id)->patch($request_body);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->alerts()->_($alert_id)->patch($request_body);
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Retrieve a specific alert #
 // GET /alerts/{alert_id} #
 
 $alert_id = "test_url_param";
-
-try {
-    $response = $sg->client->alerts()->_($alert_id)->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$response = $sg->client->alerts()->_($alert_id)->get();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
 ////////////////////////////////////////////////////
 // Delete an alert #
 // DELETE /alerts/{alert_id} #
 
 $alert_id = "test_url_param";
+$response = $sg->client->alerts()->_($alert_id)->delete();
+echo $response->statusCode();
+echo $response->body();
+echo $response->headers();
 
-try {
-    $response = $sg->client->alerts()->_($alert_id)->delete();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}

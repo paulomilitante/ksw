@@ -1,10 +1,8 @@
 <?php 
 
-use \SendGrid;
-use \SendGrid\Mail;
-require("sendgrid-php/sendgrid-php.php");
+require "sendgrid-php/sendgrid-php.php";
 
-$uemail = $_POST['email'];
+$email = $_POST['email'];
 $name = $_POST['name'];
 $mobile = $_POST['mobile-number'];
 $attend = $_POST['attend'];
@@ -14,33 +12,26 @@ $body = "<html>
 <body>
 <p><b>Full Name:</b> $name</p>
 <p><b>Mobile:</b> $mobile</p>
-<p><b>Email:</b> $uemail</p>
+<p><b>Email:</b> $email</p>
 <p><b>Response:</b> $attend</p>
 <p><b>Message:</b> $message</p>
 </body>
 </html>";
 
+$from = new SendGrid\Email(null,$email);
 $subject = "RSVP - $name";
+$to = new SendGrid\Email(null, "kokoandsani2018@gmail.com");
+$content = new SendGrid\Content("text/html", $body);
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
 $apiKey = getenv('SENDGRID_API_KEY');
+$sg = new \SendGrid($apiKey);
 
+$response = $sg->client->mail()->send()->post($mail);
+// echo $response->statusCode();
+// echo $response->headers();
+// echo $response->body();
 
-$from = new From($uemail, $name);
-$to = new To("kokoandsani2018@gmail.com", "K&S");
-$subject = new Subject($subject);
-$htmlContent = new HtmlContent($body);
-$email = new Mail($from,
-                  $to,
-                  $subject,
-                  $htmlContent);
+// include("success.html");
 
-$sendgrid = new \SendGrid($apiKey);
-try {
-    $response = $sendgrid->send($email);
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
-echo $response->statusCode();
-print_r($response->headers());
-echo $response->body();
 ?>
