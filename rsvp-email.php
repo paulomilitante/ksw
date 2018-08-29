@@ -18,7 +18,7 @@ $body = "<html>
 </body>
 </html>";
 
-$from = new SendGrid\Email(null,$email);
+$from = new SendGrid\Email($name,$email);
 $subject = "RSVP - $name";
 $to = new SendGrid\Email(null, "kokoandsani2018@gmail.com");
 $content = new SendGrid\Content("text/html", $body);
@@ -32,6 +32,6 @@ $response = $sg->client->mail()->send()->post($mail);
 // echo $response->headers();
 // echo $response->body();
 
-include("success.html");
+// include("success.html");
 
 ?>
