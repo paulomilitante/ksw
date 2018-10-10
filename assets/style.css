@@ -145,6 +145,11 @@ iframe {
 	margin: 2vh auto;
 }
 
+.entourage-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #countdown {
 	padding-bottom: 10vh;
 }
