@@ -150,6 +150,10 @@ iframe {
   flex-wrap: wrap;
 }
 
+.entourage-box > div {
+  margin-bottom: 5vh;
+}
+
 #countdown {
 	padding-bottom: 10vh;
 }
