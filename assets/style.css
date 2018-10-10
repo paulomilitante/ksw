@@ -42,7 +42,8 @@ nav ul a {
 #welcome,
 #ceremony,
 #countdown,
-#success {
+#success,
+#entourage {
 	background-image: url("img/paper.png");
 }
 
@@ -99,7 +100,8 @@ h4 {
 #attire h2,
 #registry h2,
 #faq h2,
-#countdown h1 {
+#countdown h1,
+#entourage h2 {
 	color: #e9d411;
 }
 
@@ -133,6 +135,13 @@ iframe {
 
 .attire {
 	height: 50vh;
+	margin: 2vh auto;
+}
+
+.entourage {
+	width: 10vw;
+	height: 10vw;
+	border-radius: 50%;
 	margin: 2vh auto;
 }
 
@@ -170,5 +179,12 @@ footer {
 @media only screen and (max-width: 374px) {
 	.carousel {
 		height: 270px !important;
-	}	
+	}
+
+	.entourage {
+		width: 30vw;
+		height: 30vw;
+		border-radius: 50%;
+		margin: 2vh auto;
+	}
 }
