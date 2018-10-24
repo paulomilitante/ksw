@@ -51,6 +51,26 @@ nav ul a {
 	background-image: url("img/symphony.png");
 }
 
+#welcome {
+  position: relative;
+  z-index: 1;
+}
+
+#welcome:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("img/prenup1.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.1;
+}
+
 .fullpage {
 	min-height: 100vh;
 }
@@ -182,13 +202,21 @@ footer {
 }
 
 .carousel {
-	height: 650px !important;
+	height: 35vw !important;
 }
 
-@media only screen and (max-width: 374px) {
+.carousel.carousel-slider .carousel-item {
+  min-height: 35vw !important;
+}
+
+@media only screen and (max-width: 375px) {
 	.carousel {
-		height: 270px !important;
+		height: 75vw !important;
 	}
+
+  .carousel.carousel-slider .carousel-item {
+    min-height: 75vw !important;
+  }
 }
 
 @media only screen and (max-width: 767px) {
