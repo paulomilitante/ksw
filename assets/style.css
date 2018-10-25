@@ -71,6 +71,12 @@ nav ul a {
   opacity: 0.1;
 }
 
+@media only screen and (max-width: 767px) {
+  #welcome:before {
+    background-size: cover;
+  }
+}
+
 .fullpage {
 	min-height: 100vh;
 }
